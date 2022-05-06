@@ -1,18 +1,28 @@
-<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Surname</th>
-      <th>Email</th>
-      <th>Comments</th>
+<table
+  datatable
+  [dtOptions]="dtOptions"
+  [dtTrigger]="dtTrigger"
+  class="table"
+>
+  <thead class="title-text">
+    <tr class="table-header">
+      <th class="table-column-header">Name</th>
+      <th class="table-column-header">Abbr.</th>
+      <th class="table-column-header">Capital</th>
+      <th class="table-column-header">Region</th>
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let data of datas; let i = index">
-      <th>{{data.id}}</th>
-      <th>{{data.name}}</th>
-      <th>{{data.email}}</th>
-      <th>{{data.body}}</th>
+  <tbody *ngIf="countries?.length != 0">
+    <tr *ngFor="let country of countries; let i = index">
+      <th class="first-column-title">{{ country.name.common }}</th>
+      <th >{{ country.cca2 }}</th>
+      <th class="column-title">{{ country.capital }}</th>
+      <th class="column-title">{{ country.region }}</th>
+    </tr>
+  </tbody>
+  <tbody *ngIf="countries.length === 0">
+    <tr>
+      <td colspan="3" class="no-data">Loading...</td>
     </tr>
   </tbody>
 </table>

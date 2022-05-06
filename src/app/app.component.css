@@ -1,0 +1,25 @@
+
+.table {
+  background-color: aliceblue;
+  margin-top: 16px;
+}
+
+.title-text {
+  color: rgb(22, 44, 156);
+}
+
+.first-column-title {
+  background-color: aliceblue;
+  text-align: left;
+}
+
+.column-title {
+  text-align: left;
+}
+
+.table-column-header {
+  padding: 10px;
+}
+.table-header {
+  text-align: left;
+}
