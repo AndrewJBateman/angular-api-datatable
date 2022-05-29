@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 
 import { CountryService } from './services/country.service';
+import { CountryListInterface } from './interfaces/country.interface';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +12,7 @@ import { CountryService } from './services/country.service';
 export class AppComponent implements OnInit, OnDestroy {
   title = 'angular-api-datatable';
   dtOptions: DataTables.Settings = {};
-  // data$: Observable<any> = new Observable();
-  // datas: any = [];
-  countries: any = [];
+  countries: CountryListInterface[] = [];
 
   dtTrigger: Subject<any> = new Subject<any>();
 
@@ -24,26 +22,25 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.dtOptions = {
       language: {
-        url: '//cdn.datatables.net/plug-ins/1.11.5/i18n/fr-FR.json',
+        url: '//cdn.datatables.net/plug-ins/1.12.1/i18n/fr-FR.json',
       },
       pagingType: 'full_numbers',
       responsive: true,
     };
 
-    this.getCountryList('all?');
+    this.getCountryList('all?fields=name,cca2,capital,region');
   }
 
-    // get country list and subscribe, new table triggered with new data each RouterTestingModule
-    getCountryList = async (url: string) => {
-      this.countryService.fetchCountryList(url).subscribe((data: any) => {
-        this.countries = data;
-        console.log('countries: ', this.countries);
-        this.dtTrigger.next(data);
-      });
-    };
+  // get country list and subscribe, new table triggered with new data each RouterTestingModule
+  getCountryList = async (url: string) => {
+    this.countryService.fetchCountryList(url).subscribe((data: any) => {
+      this.countries = data;
+      this.dtTrigger.next(data);
+    });
+  };
 
-    // Table data unsubscribed in OnDestroy lifecycle
-    ngOnDestroy(): void {
-      this.dtTrigger.unsubscribe();
-    }
+  // Table data unsubscribed in OnDestroy lifecycle
+  ngOnDestroy(): void {
+    this.dtTrigger.unsubscribe();
+  }
 }

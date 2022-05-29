@@ -20,7 +20,7 @@
       <th class="column-title">{{ country.region }}</th>
     </tr>
   </tbody>
-  <tbody *ngIf="countries.length === 0">
+  <tbody *ngIf="!countries">
     <tr>
       <td colspan="3" class="no-data">Loading...</td>
     </tr>
