@@ -34,7 +34,7 @@
 
 ## :signal_strength: Technologies
 
-* [Angular framework v13](https://angular.io/)
+* [Angular framework v14](https://angular.io/)
 * [Angular DataTables library v13](https://l-lin.github.io/angular-datatables/#/welcome)
 * [ColReorder for DataTables v1](https://www.npmjs.com/package/datatables.net-colreorder) for responsive columns
 
@@ -71,7 +71,7 @@
 ## :clipboard: Status & To-Do List
 
 * Status: Working
-* To-Do: Find out why language was not changed to French.
+* To-Do: Nothing
 
 ## :clap: Inspiration
 
