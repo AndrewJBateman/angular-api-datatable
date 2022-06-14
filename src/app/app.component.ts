@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 
 import { CountryService } from './services/country.service';
 import { CountryListInterface } from './interfaces/country.interface';
@@ -28,15 +28,17 @@ export class AppComponent implements OnInit, OnDestroy {
       responsive: true,
     };
 
-    this.getCountryList('all?fields=name,cca2,capital,region');
+    this.getCountryList('all?fields=name,capital,region,cca2');
   }
 
   // get country list and subscribe, new table triggered with new data each RouterTestingModule
-  getCountryList = async (url: string) => {
-    this.countryService.fetchCountryList(url).subscribe((data: any) => {
-      this.countries = data;
-      this.dtTrigger.next(data);
-    });
+  getCountryList = (url: string): void => {
+    this.countryService
+      .fetchCountryList(url)
+      .subscribe((data: CountryListInterface[]) => {
+        this.countries = data;
+        this.dtTrigger.next(data);
+      });
   };
 
   // Table data unsubscribed in OnDestroy lifecycle

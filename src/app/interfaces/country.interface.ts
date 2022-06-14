@@ -8,17 +8,11 @@ export interface CountryListInterface {
 
 export interface Name {
   common: string;
-  nativeName: NativeName;
-  official: string;
-}
-
-export interface NativeName {
-  aym: Translation;
-  que: Translation;
-  spa: Translation;
-}
-
-export interface Translation {
-  official: string;
-  common: string;
+  nativeName: {
+    deu: {
+      official: string;
+      common: string;
+    };
+    official: string;
+  };
 }
