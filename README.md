@@ -25,8 +25,9 @@
 
 ## :books: General info
 
-* [Angular DataTables library](https://l-lin.github.io/angular-datatables/#/welcome) for building complex HTML tables using DataTables [JQuery plug-in](https://datatables.net/)
-* [Rest Countries API v3](https://restcountries.com/#api-endpoints-v3-all) endpoint used for country JSON data
+* Angular DataTables library used for building complex HTML tables using DataTables
+* [REST Countries API v3](https://restcountries.com/#api-endpoints-v3-all) endpoint used for country JSON data
+* Not possible to use data Observable in HTML with `| async` because DataTables operates on JASON data so requires subscription to the data Observable.
 
 ## :camera: Screenshots
 
@@ -35,7 +36,8 @@
 ## :signal_strength: Technologies
 
 * [Angular framework v14](https://angular.io/)
-* [Angular DataTables library v13](https://l-lin.github.io/angular-datatables/#/welcome)
+* [Angular DataTables library v14](https://l-lin.github.io/angular-datatables/#/welcome)
+* [JQuery plug-in v3](https://www.npmjs.com/package/jquery)
 * [ColReorder for DataTables v1](https://www.npmjs.com/package/datatables.net-colreorder) for responsive columns
 
 ## :floppy_disk: Setup
@@ -50,12 +52,13 @@
 
 ```typescript
   // get country list and subscribe, new table triggered with new data each RouterTestingModule
-  getCountryList = async (url: string) => {
-    this.countryService.fetchCountryList(url).subscribe((data: any) => {
-      this.countries = data;
-      console.log('countries: ', this.countries);
-      this.dtTrigger.next(data);
-    });
+  getCountryList = (url: string): void => {
+    this.countryService
+      .fetchCountryList(url)
+      .subscribe((data: CountryListInterface[]) => {
+        this.countries = data;
+        this.dtTrigger.next(data);
+      });
   };
 
   // Table data unsubscribed in OnDestroy lifecycle
