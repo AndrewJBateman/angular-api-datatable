@@ -15,7 +15,7 @@
   <tbody *ngIf="countries?.length != 0">
     <tr *ngFor="let country of countries; let i = index">
       <th class="first-column-title">{{ country.name.common }}</th>
-      <th >{{ country.cca2 }}</th>
+      <th class="column-title">{{ country.cca2 }}</th>
       <th class="column-title">{{ country.capital }}</th>
       <th class="column-title">{{ country.region }}</th>
     </tr>
