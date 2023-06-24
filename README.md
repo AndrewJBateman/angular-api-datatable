@@ -35,8 +35,8 @@
 
 ## :signal_strength: Technologies
 
-* [Angular framework v15](https://angular.io/)
-* [Angular DataTables library v15](https://l-lin.github.io/angular-datatables/#/welcome)
+* [Angular framework v16](https://angular.io/)
+* [Angular DataTables library v16](https://l-lin.github.io/angular-datatables/#/welcome)
 * [JQuery plug-in v3](https://www.npmjs.com/package/jquery)
 * [ColReorder for DataTables v1](https://www.npmjs.com/package/datatables.net-colreorder) for responsive columns
 
@@ -86,4 +86,4 @@
 
 ## :envelope: Contact
 
-* Repo created by [ABateman](https://github.com/AndrewJBateman), email: gomezbateman@yahoo.com
+* Repo created by [ABateman](https://github.com/AndrewJBateman), email: `gomezbateman@yahoo.com`
